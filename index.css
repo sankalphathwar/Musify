@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-light: #8B5CF6;
+  --primary-dark: #6D28D9;
+  --background-light: #F3F4F6;
+  --background-dark: #111827;
+  --text-light: #1F2937;
+  --text-dark: #F9FAFB;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.dark {
+  --primary: var(--primary-dark);
+  --background: var(--background-dark);
+  --text: var(--text-dark);
+}
+
+.light {
+  --primary: var(--primary-light);
+  --background: var(--background-light);
+  --text: var(--text-light);
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-full font-semibold text-white transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500;
+  }
+
+  .btn-primary {
+    @apply bg-violet-600 hover:bg-violet-700 dark:bg-violet-500 dark:hover:bg-violet-600;
+  }
+
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl border border-gray-200 dark:border-gray-700;
+  }
+
+  .form-input, .form-select {
+    @apply mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-violet-300 focus:ring focus:ring-violet-200 focus:ring-opacity-50 dark:bg-gray-700 dark:border-gray-600 dark:text-white;
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
